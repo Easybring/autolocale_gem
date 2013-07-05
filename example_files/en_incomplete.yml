@@ -1,0 +1,14 @@
+---
+en:
+  testString: foo-boo
+  hash:
+    string: stuff
+    another_hash:
+      array:
+      - blah
+      - blargh
+      - asdf
+    should_be_a_string:
+    - but it is..
+    - ..an array
+    missing_string: You shouldn't find me in en_incomplete.yml

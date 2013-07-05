@@ -1,0 +1,12 @@
+---
+en:
+  testString: foo
+  hash:
+    string: baz
+    another_hash:
+      array:
+      - foo
+      - baz
+      - bar
+    should_be_a_string: And it indeed is
+    missing_string: You shouldn't find me in en_incomplete.yml
