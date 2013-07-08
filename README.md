@@ -4,6 +4,8 @@ AutoLocale
 A tiny gem for Ruby on Rails locales.
 Compares two translation locales and checks for missing translations or mismatching value types.
 
+You can also find this gem at https://rubygems.org/gems/AutoLocale
+
 Usage
 --
 ```
