@@ -12,5 +12,5 @@ en:
     - but it is..
     - ..an array
   untranslated_test:
-    incorrect: This is translated perfectly
+    incorrect: This is not translated.
     correct: This should not match with the key at en_complete.yml

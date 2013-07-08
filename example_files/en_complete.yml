@@ -11,5 +11,5 @@ en:
     should_be_a_string: And it indeed is
     missing_string: You shouldn't find me in en_incomplete.yml
   untranslated_test:
-    incorrect: This is translated perfectly
+    incorrect: This is not translated.
     correct: This should not match with the key at en_incomplete.yml
