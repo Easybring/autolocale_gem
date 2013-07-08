@@ -45,26 +45,55 @@ class AutoLocale
     end
   end
 
+  def self.untranslated(file1, file2)
+    abort "\033[31mSyntax error\033[0m" if file1.nil? || file2.nil?
+    f1 = YAML.load_file(file1) # gets a hash from yaml file
+    f2 = YAML.load_file(file2)
+    $issues = []
+    find_untranslated(f1.first[1], f2.first[1])
+    if $issues.empty?
+      puts "\033[32mNo problems found!\033[0m"
+    else
+      show_issues
+    end
+  end
+
   private
 
   def self.compare_yaml(f1, f2, path = [])
     f1.each do |key, value|
       # check if f2.key equals f1.key
       unless f2.key?(key)
-        $issues << ["Missing translation", path.join(".") + "." + key]
+        $issues << ["Missing translation", path.clone.push(key).join(".")]
         next
       end
 
       # check if f1.key's value-type equals f2.key's value-type
       unless value.is_a?(f2[key].class)
-        c = path
-        $issues << ["Wrong value type (#{value.class.name} vs #{f2[key].class.name})", path.join(".") + "." + key]
+        $issues << ["Wrong value type (#{value.class.name} vs #{f2[key].class.name})", path.clone.push(key).join(".")]
         next
       end
 
       # go deeper
       if value.is_a?(Hash)
         compare_yaml(value, f2[key], (path + [key]))
+        next
+      end
+    end
+  end
+
+  def self.find_untranslated(f1, f2, path = [])
+    f1.each do |key, value|
+
+      # check if the values are the same
+      unless value == f2[key] || value.is_a?(Hash) || f2[key].is_a?(Hash)
+        $issues << ["untranslated key", path.clone.push(key).join(".")]
+        next
+      end
+
+      # go deeper
+      if value.is_a?(Hash)
+        find_untranslated(value, f2[key], (path + [key]))
         next
       end
     end
