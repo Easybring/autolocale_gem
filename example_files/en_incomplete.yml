@@ -11,4 +11,3 @@ en:
     should_be_a_string:
     - but it is..
     - ..an array
-    missing_string: You shouldn't find me in en_incomplete.yml
