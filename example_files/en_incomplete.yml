@@ -11,3 +11,6 @@ en:
     should_be_a_string:
     - but it is..
     - ..an array
+  untranslated_test:
+    incorrect: This is translated perfectly
+    correct: This should not match with the key at en_complete.yml

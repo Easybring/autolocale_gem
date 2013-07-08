@@ -38,4 +38,4 @@ Example
 As mentioned above, it will not touch value type mismatches - but it shows them to you so it can be fixed by hand.
 
 `AutoLocale.untranslated "example_files/en_complete.yml", "example_files/en_incomplete.yml"`
-![Preview](http://i.imgur.com/4q8GxJR.png)
+![Preview](http://i.imgur.com/SdOGiZe.png)
