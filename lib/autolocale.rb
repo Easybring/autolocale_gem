@@ -86,9 +86,6 @@ class AutoLocale
     f1.each do |key, value|
 
       # check if the values are the same
-      puts "a #{value.to_s}"
-      puts "b #{f2[key].to_s}"
-      puts "--"
       if value.to_s == f2[key].to_s && value.is_a?(f2[key].class)
         $issues << ["untranslated key", path.clone.push(key).join(".")]
         next
