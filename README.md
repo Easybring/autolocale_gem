@@ -9,7 +9,7 @@ You can also find this gem at https://rubygems.org/gems/AutoLocale
 Usage
 --
 
-You can run this in `ìrb``
+You can run this in `irb`
 ```
 require 'autolocale'
 AutoLocale.compare "path/to/complete_locale.yml", "path/to/incomplete_locale.yml"
