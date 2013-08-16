@@ -41,3 +41,10 @@ As mentioned above, it will not touch value type mismatches - but it shows them 
 
 `AutoLocale.untranslated "example_files/en_complete.yml", "example_files/en_incomplete.yml"`
 ![Preview](http://i.imgur.com/SdOGiZe.png)
+
+Shortcut for all locale files
+--
+Put this line of code into file.rb and call it with `ruby file.rb` from your locales path:<br>
+`Dir.glob('*.yml').permutation(2).to_a.each{|f|print "#{f[0]} <=> #{f[1]}: ";AutoLocale.compare(f[0].to_s, f[1].to_s)}`<br>
+It will compare every file with all the other files in the directory.<br/>
+Change `compare` to one of the methods listed above, if you want to.
