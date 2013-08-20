@@ -111,7 +111,7 @@ class AutoLocale
         hsh[key] = value + stuff
       elsif value.is_a?(Array)
         hsh[key] = value.each_index do |a|
-          value[a] = value[a] + stuff
+          value[a] = value[a] + stuff if a.is_a?(String)
         end
       end
     end
