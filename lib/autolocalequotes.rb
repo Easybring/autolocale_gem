@@ -25,9 +25,13 @@ class AutoLocale
     f2 = YAML.load_file(file2)
     puts "\033[32mAuto merging missing translations into #{File.basename(file2)} ...\033[0m"
     newhash = merge_files(f1.clone, f2.clone)
+    append_stuff(newhash, "๛๛๛&๛๛๛ ")
     File.open(file2, "w") do |out|
       YAML.dump(newhash, out)
     end
+    text = File.read(file2)
+    replaced = text.gsub("๛๛๛&๛๛๛ ", "")
+    File.open(file2, "w") { |f| f << replaced }
     puts "\033[32mdone!\033[0m"
 
     $issues = []
@@ -95,6 +99,20 @@ class AutoLocale
       if value.is_a?(Hash)
         find_untranslated(value, f2[key], (path + [key]))
         next
+      end
+    end
+  end
+
+  def self.append_stuff(hsh, stuff)
+    hsh.each do |key, value|
+      if value.is_a?(Hash)
+        hsh[key] = append_stuff(value, stuff)
+      elsif value.is_a?(String)
+        hsh[key] = value + stuff
+      elsif value.is_a?(Array)
+        hsh[key] = value.each_index do |a|
+          value[a] = value[a] + stuff
+        end
       end
     end
   end

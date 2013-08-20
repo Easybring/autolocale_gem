@@ -1,6 +1,10 @@
 AutoLocale
 ==
 
+Fork from https://github.com/nedec/autolocale_gem<br>
+Modificated to wrap every value with qutoes.
+
+
 A tiny gem for Ruby on Rails locales.
 Compares two translation locales and checks for missing translations or mismatching value types.
 

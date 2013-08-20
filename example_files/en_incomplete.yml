@@ -1,16 +1,15 @@
 ---
 en:
-  testString: foo-boo
+  testString: 'foo'
   hash:
-    string: stuff
+    string: 'baz'
     another_hash:
       array:
-      - blah
-      - blargh
-      - asdf
-    should_be_a_string:
-    - but it is..
-    - ..an array
+      - 'foo'
+      - 'baz'
+      - 'bar'
+    should_be_a_string: 'And it indeed is'
+    missing_string: 'You shouldn''t find me in en_incomplete.yml'
   untranslated_test:
-    incorrect: This is not translated.
-    correct: This should not match with the key at en_complete.yml
+    incorrect: 'This is not translated.'
+    correct: 'This should not match with the key at en_incomplete.yml'
