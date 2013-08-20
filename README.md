@@ -1,4 +1,4 @@
-AutoLocale
+AutoLocaleQuotes
 ==
 
 Fork from https://github.com/nedec/autolocale_gem<br>
@@ -15,20 +15,20 @@ Usage
 
 You can run this in `irb`
 ```
-require 'autolocale'
+require 'autolocalequotes'
 AutoLocale.compare "path/to/complete_locale.yml", "path/to/incomplete_locale.yml"
 ```
 'compare' will just show problems, but not affect the actual files.
 
 ```
-require 'autolocale'
+require 'autolocalequotes'
 AutoLocale.automerge "path/to/complete_locale.yml", "path/to/incomplete_locale.yml"
 ```
 'automerge' will automatically add not existing keys (and their values) to the incomplete locale file.
 This will not touch value type mismatches.
 
 ```
-require 'autolocale'
+require 'autolocalequotes'
 AutoLocale.untranslated "path/to/complete_locale.yml", "path/to/incomplete_locale.yml"
 ```
 Use 'untranslated' when there are no issues and you want to find untranslated (but existing) keys.<br>
@@ -49,6 +49,6 @@ As mentioned above, it will not touch value type mismatches - but it shows them 
 Shortcut for all locale files
 --
 Put this line of code into file.rb and call it with `ruby file.rb` from your locales path:<br>
-`Dir.glob('*.yml').permutation(2).to_a.each{|f|print "#{f[0]} <=> #{f[1]}: ";AutoLocale.compare(f[0].to_s, f[1].to_s)}`<br>
+`require 'autolocalequotes';Dir.glob('*.yml').permutation(2).to_a.each{|f|print "#{f[0]} <=> #{f[1]}: ";AutoLocale.compare(f[0].to_s, f[1].to_s)}`<br>
 It will compare every file with all the other files in the directory.<br/>
 Change `compare` to one of the methods listed above, if you want to.
